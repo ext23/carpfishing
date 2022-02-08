@@ -3,6 +3,7 @@
 /.pnp
 /.pnp.js
 /coverage
+/uploads
 /build
 /.DS_Store
 /.env.local
