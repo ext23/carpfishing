@@ -27,6 +27,7 @@ schema_view = get_swagger_view(title=API_TITLE)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('teams.urls')),
+    path('api/v1/', include('ponds.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('swagger-docs/', schema_view),

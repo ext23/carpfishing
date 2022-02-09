@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     # local
     'teams.apps.TeamsConfig',
+    'ponds.apps.PondsConfig',
 ]
 
 SWAGGER_SETTINGS = {
