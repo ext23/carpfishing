@@ -51,8 +51,9 @@ INSTALLED_APPS = [
 
     # local
     'fishes.apps.FishesConfig',
-    'teams.apps.TeamsConfig',
+    'fouls.apps.FoulsConfig',
     'ponds.apps.PondsConfig',
+    'teams.apps.TeamsConfig',
 ]
 
 SWAGGER_SETTINGS = {
@@ -103,6 +104,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+        'libraries': {
+                'staticfiles': 'django.templatetags.static',
+            },
         },
     },
 ]

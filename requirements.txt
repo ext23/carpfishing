@@ -1,9 +1,10 @@
-Django==2.2.6
+#Django==2.2.6
+Django==3.2
 psycopg2-binary==2.8.6
-djangorestframework==3.10.3
+djangorestframework==3.12
 django-cors-headers==3.1.1
 django-rest-auth==0.9.5
-django-allauth==0.40.0
+django-allauth==0.48.0
 coreapi==2.3.3
 pyyaml==5.1.2
 django-rest-swagger==2.2.0
