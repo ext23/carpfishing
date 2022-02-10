@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Application definition
 
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'fishes.apps.FishesConfig',
     'fouls.apps.FoulsConfig',
     'members.apps.MembersConfig',
+    'persons.apps.PersonsConfig',
     'ponds.apps.PondsConfig',
     'teams.apps.TeamsConfig',
 ]

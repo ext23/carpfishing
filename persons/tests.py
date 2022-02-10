@@ -2,33 +2,28 @@ from django.contrib.auth.models import User
 from django.urls import include, path, reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
-from .models import Member
-from persons.models import Person
-from .serializers import MemberSerializer
+from .models import Person
+from .serializers import PersonSerializer
 
 
-def member_mock_json():
+def person_mock_json():
+    user = User.objects.get(username=test_login())
+
     return {'last_name': 'Тестовый',
             'first_name': 'Тест',
-            'patronymic': 'Тестович',
-            'url_instagram': 'https://instagram.com',
+            'user': user.id,
             'external_code': '123'
             }
 
 
-def member_mock_object():
+def person_mock_object():
     user = User.objects.get(username=test_login())
 
-    person = Person.objects.create(
+    return Person.objects.create(
         last_name='Тестовый',
         first_name='Тест',
         user=user,
     )
-
-    return Member.objects.create(
-        person=person,
-        url_instagram='https://instagram.com',
-        external_code='123')
 
 
 def test_login():
@@ -43,58 +38,54 @@ def test_pass():
     return 'testuserpass'
 
 
-class CreateMemberTest(APITestCase):
+class CreatePersonTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser(test_login(), test_mail(), test_pass())
         self.client.login(username=test_login(), password=test_pass())
-        self.data = member_mock_json()
+        self.data = person_mock_json()
 
-    def test_create_member(self):
-        url = reverse('members-list')
+    def test_create_person(self):
+        url = reverse('persons-list')
         response = self.client.post(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertEqual(Member.objects.count(), 1)
+        self.assertEqual(Person.objects.count(), 1)
 
 
-class ReadMemberTest(APITestCase):
+class ReadPersonTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser(test_login(), test_mail(), test_pass())
         self.client.login(username=test_login(), password=test_pass())
-        self.member = member_mock_object()
+        self.person = person_mock_object()
 
-    def test_can_read_member_list(self):
-        response = self.client.get(reverse('members-list'))
+    def test_can_read_person_list(self):
+        response = self.client.get(reverse('persons-list'))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_can_read_member_detail(self):
-        response = self.client.get(reverse('members-detail', args=[self.member.id]))
+    def test_can_read_person_detail(self):
+        response = self.client.get(reverse('persons-detail', args=[self.person.id]))
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 
-class UpdateMemberTest(APITestCase):
+class UpdatePersonTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser(test_login(), test_mail(), test_pass())
         self.client.login(username=test_login(), password=test_pass())
-        self.member = member_mock_object()
-        self.data = MemberSerializer(self.member).data
+        self.person = person_mock_object()
+        self.data = PersonSerializer(self.person).data
         self.data.update({'first_name': 'Иван',
-                          'photo': '', 'scan_id': '',
-                          'health_insurance_id': '',
-                          'sport_insurance_id': '',
-                          'captain_of_team': '',
-                          'assistant_of_team': ''})
+                          'photo': ''})
 
-    def test_can_update_member(self):
-        response = self.client.put(reverse('members-detail', args=[self.member.id]), self.data)
+    def test_can_update_person(self):
+        response = self.client.put(reverse('persons-detail', args=[self.person.id]), self.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 
-class DeleteMemberTest(APITestCase):
+class DeletePersonTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser(test_login(), test_mail(), test_pass())
         self.client.login(username=test_login(), password=test_pass())
-        self.member = member_mock_object()
+        self.person = person_mock_object()
 
-    def test_can_delete_member(self):
-        response = self.client.delete(reverse('members-detail', args=[self.member.id]))
+    def test_can_delete_person(self):
+        response = self.client.delete(reverse('persons-detail', args=[self.person.id]))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
