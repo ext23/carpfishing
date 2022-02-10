@@ -30,9 +30,11 @@ urlpatterns = [
     path('api/v1/', include('ponds.urls')),
     path('api/v1/', include('fishes.urls')),
     path('api/v1/', include('fouls.urls')),
+    path('api/v1/', include('members.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('swagger-docs/', schema_view),
+    path('', schema_view),
 ]
 
 if settings.DEBUG:

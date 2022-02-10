@@ -5,4 +5,4 @@ from .models import Foul
 class FoulSerializer(serializers.ModelSerializer):
     class Meta:
         model = Foul
-        fields = ('id', 'name', 'external_code', 'decision')
+        fields = ('__all__')

@@ -46,7 +46,7 @@ class UpdateTeamTest(APITestCase):
                                         external_code='00000001',
                                         pin='0235')
         self.data = TeamSerializer(self.team).data
-        self.data.update({'name': 'CARP FISHING 123', 'logo': ''})
+        self.data.update({'name': 'CARP FISHING 123', 'logo': '', 'captain': '', 'assistant': ''})
 
     def test_can_update_team(self):
         response = self.client.put(reverse('teams-detail', args=[self.team.id]), self.data)

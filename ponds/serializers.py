@@ -12,13 +12,10 @@ class PondSerializer(serializers.ModelSerializer):
             allow_null=True,
             required=False)
 
-        fields = ('id', 'name', 'zone', 'width_bottom', 'width_top',
-                  'max_depth', 'avg_depth', 'square', 'fish_density',
-                  'avg_fish_weight', 'description', 'logo', 'address',
-                  'width', 'sector_width', 'cell_height', 'sectors')
+        fields = ('__all__')
 
 
 class SectorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sector
-        fields = ('pond', 'number')
+        fields = ('__all__')

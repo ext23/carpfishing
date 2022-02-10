@@ -5,4 +5,4 @@ from .models import Fish
 class FishSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fish
-        fields = ('id', 'name', 'description', 'external_code', 'image')
+        fields = ('__all__')
