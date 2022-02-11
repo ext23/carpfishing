@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     # local
     'fishes.apps.FishesConfig',
     'fouls.apps.FoulsConfig',
-    'members.apps.MembersConfig',
     'persons.apps.PersonsConfig',
     'ponds.apps.PondsConfig',
     'teams.apps.TeamsConfig',

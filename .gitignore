@@ -13,3 +13,6 @@
 /npm-debug.log*
 /yarn-debug.log*
 /yarn-error.log*
+/whole.backup.json
+/whole.json
+/1.json
