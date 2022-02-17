@@ -8,7 +8,6 @@ class Foul(models.Model):
         EXPELLING = 'EX', _('Дисквалификация')
 
     name = models.CharField(max_length=100, help_text='Название нарушения')
-    external_code = models.CharField(max_length=9, help_text='Код из 1С')
 
     decision = models.CharField(
         max_length=2,

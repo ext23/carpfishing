@@ -4,7 +4,7 @@ from .models import Team
 
 class TeamAdmin(admin.ModelAdmin):
     model = Team
-    list_display = ['name', 'id', 'external_code', ]
+    list_display = ['name', 'id', ]
 
 
 admin.site.register(Team, TeamAdmin)

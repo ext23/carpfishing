@@ -15,7 +15,6 @@ class Pond(models.Model):
     description = models.TextField(help_text='Описание водоема')
     logo = models.ImageField(help_text='Логотип водоема', blank=True)
     address = models.TextField(help_text='Адрес', blank=True)
-    width = models.DecimalField(help_text='Ширина водоема', max_digits=10, decimal_places=2)
     sector_width = models.DecimalField(help_text='Ширина водоема', max_digits=10, decimal_places=2)
     cell_height = models.IntegerField(help_text='Высота ячейки (dp)')
 
@@ -31,9 +30,13 @@ class Pond(models.Model):
 class Sector(models.Model):
     pond = models.ForeignKey(Pond, related_name='sectors', on_delete=models.CASCADE, help_text='Водоем')
     number = models.IntegerField(help_text='Номер сектора')
+    disabled = models.BooleanField(help_text='Отключен', default=False)
 
     class Meta:
         unique_together = ['pond', 'number']
+        ordering = ['number']
 
     def __str__(self):
         return f'{self.number} ({self.pond})'
+
+

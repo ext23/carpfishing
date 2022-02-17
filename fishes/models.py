@@ -4,7 +4,6 @@ from django.utils.safestring import mark_safe
 
 class Fish(models.Model):
     name = models.CharField(max_length=100, help_text='Название рыбы')
-    external_code = models.CharField(max_length=9, help_text='Код из 1С')
     description = models.TextField(help_text='Описание')
     image = models.ImageField(help_text='Изображение', blank=True)
 

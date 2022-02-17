@@ -5,7 +5,6 @@ from persons.models import Member
 
 class Team(models.Model):
     name = models.CharField(max_length=100, help_text='Название команды')
-    external_code = models.CharField(max_length=9, help_text='Код из 1С')
     pin = models.CharField(max_length=4, help_text='Пин-код')
     logo = models.ImageField(help_text='Лого команды', blank=True)
     captain = models.OneToOneField(Member,
@@ -20,7 +19,6 @@ class Team(models.Model):
                                      blank=True,
                                      null=True,
                                      help_text='Помощник')
-
 
     def __str__(self):
         return self.name
