@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'persons.apps.PersonsConfig',
     'ponds.apps.PondsConfig',
     'teams.apps.TeamsConfig',
+    'tournaments.apps.TournamentsConfig'
 ]
 
 SWAGGER_SETTINGS = {

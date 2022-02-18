@@ -18,7 +18,6 @@ def pond_mock_json():
             'avg_fish_weight': '124.222',
             'description': 'Тестовый водоем на test территории',
             'address': 'Test ',
-            'width': '123.12',
             'sector_width': '555.55',
             'cell_height': '20',
             'sectors': []
@@ -31,6 +30,7 @@ def sector_mock_json(pond):
         'number': 1,
     }
 
+
 def pond_mock_object():
     return Pond.objects.create(
         name='Тестовый водоем', zone='A01',
@@ -38,7 +38,7 @@ def pond_mock_object():
         max_depth=123.555, avg_depth=999.111,
         square=555.555, fish_density=124124.212,
         avg_fish_weight=124.222, description='Тестовый водоем на test территории',
-        address='Test ', width=123.12,
+        address='Test ',
         sector_width=555.55, cell_height=20,
         logo='')
 

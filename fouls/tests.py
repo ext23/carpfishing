@@ -9,7 +9,6 @@ from .serializers import FoulSerializer
 def foul_mock_json():
     return {'name': 'Тестовое нарушение',
             'decision': 'WR',
-            'external_code': '0000001',
             }
 
 
@@ -17,7 +16,6 @@ def foul_mock_object():
     return Foul.objects.create(
         name='Тестовое нарушение',
         decision='WR',
-        external_code='0000001',
     )
 
 

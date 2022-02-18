@@ -12,7 +12,6 @@ def person_mock_json():
     return {'last_name': 'Тестовый',
             'first_name': 'Тест',
             'user': user.id,
-            'external_code': '123'
             }
 
 
@@ -37,7 +36,6 @@ def member_mock_json():
 
     return {'person': person.id,
             'url_instagram': 'https://instagram.com',
-            'external_code': '123',
             }
 
 
@@ -53,7 +51,7 @@ def member_mock_object():
     return Member.objects.create(
         person=person,
         url_instagram='https://instagram.com',
-        external_code='123')
+    )
 
 
 def judge_mock_json():

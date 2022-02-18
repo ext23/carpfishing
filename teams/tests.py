@@ -11,8 +11,8 @@ class CreateTeamTest(APITestCase):
         self.superuser = User.objects.create_superuser('testuser', 'test@user.com', 'testuserpass')
         self.client.login(username='testuser', password='testuserpass')
         self.data = {'name': 'My Team Гора',
-                     'external_code': '00000001',
-                     'pin': '0235'}
+                     'pin': '0235',
+                     }
 
     def test_create_team(self):
         url = reverse('teams-list')
@@ -26,7 +26,6 @@ class ReadTeamTest(APITestCase):
         self.superuser = User.objects.create_superuser('testuser', 'test@user.com', 'testuserpass')
         self.client.login(username='testuser', password='testuserpass')
         self.team = Team.objects.create(name="My Team Гора",
-                                        external_code='00000001',
                                         pin='0235')
 
     def test_can_read_team_list(self):
@@ -43,7 +42,6 @@ class UpdateTeamTest(APITestCase):
         self.superuser = User.objects.create_superuser('testuser', 'test@user.com', 'testuserpass')
         self.client.login(username='testuser', password='testuserpass')
         self.team = Team.objects.create(name="My Team Гора",
-                                        external_code='00000001',
                                         pin='0235')
         self.data = TeamSerializer(self.team).data
         self.data.update({'name': 'CARP FISHING 123', 'logo': '', 'captain': '', 'assistant': ''})
@@ -58,7 +56,6 @@ class DeleteTeamTest(APITestCase):
         self.superuser = User.objects.create_superuser('testuser', 'test@user.com', 'testuserpass')
         self.client.login(username='testuser', password='testuserpass')
         self.team = Team.objects.create(name="My Team Гора",
-                                        external_code='00000001',
                                         pin='0235')
 
     def test_can_delete_team(self):

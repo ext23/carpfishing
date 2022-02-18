@@ -10,7 +10,6 @@ def fish_mock_json():
     return {'name': 'Тестовая рыба',
             'description': 'Это тестовое описание тестовой рыбы',
             'logo': '',
-            'external_code': '0000001',
             }
 
 
@@ -18,7 +17,6 @@ def fish_mock_object():
     return Fish.objects.create(
         name='Тестовая рыба',
         description='Это тестовое описание тестовой рыбы',
-        external_code='0000001',
         image='')
 
 

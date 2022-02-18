@@ -31,6 +31,7 @@ urlpatterns = [
     path('api/v1/', include('fishes.urls')),
     path('api/v1/', include('fouls.urls')),
     path('api/v1/', include('persons.urls')),
+    path('api/v1/', include('tournaments.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('api/v1/rest-auth/', include('rest_auth.urls')),
     path('swagger-docs/', schema_view),
