@@ -6,6 +6,7 @@ class Foul(models.Model):
     class FoulType(models.TextChoices):
         WARNING = 'WR', _('Предупреждение')
         EXPELLING = 'EX', _('Дисквалификация')
+        TEST = 'TS', _('asdf')
 
     name = models.CharField(max_length=100, help_text='Название нарушения')
 
